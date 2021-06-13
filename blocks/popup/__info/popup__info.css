@@ -1,0 +1,16 @@
+.popup__info{
+    width: 358px;
+    height: 14px;
+    border: none;
+    font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+}
+
+
+
+.popup__info:last-of-type{
+    margin-top: 30px;
+}
