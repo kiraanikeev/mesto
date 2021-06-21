@@ -1,14 +1,12 @@
 //переменные
 const openPopup = document.querySelector(".profile__edit-btn");
 const popup = document.querySelector(".popup");
-const closePopup = document.querySelector(".popup__close");
+const closePopup = document.querySelector(".popup__btn-close");
 let nameInput = document.querySelector('#name');
 let jobInput = document.querySelector('#job'); 
-let formElement = document.querySelector('.popup__form');
-let nameProfile = document.querySelector('.profile__name')
-let statusProfile = document.querySelector('.profile__status')
-
-
+let formElement = document.querySelector('.form');
+let nameProfile = document.querySelector('.profile__name');
+let statusProfile = document.querySelector('.profile__status');
 
 //открыть попап и перенести записи в попап
 function openClass(){

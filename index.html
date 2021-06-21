@@ -61,16 +61,16 @@
 </footer>
 
 <section class="popup">
-
-    <form action="#" class="popup__form" name='form'>
-        <button class="popup__close" type="button"></button>
-<h3 class="popup__name">Редактировать профиль</h3>
-<input type="text" class="popup__info" id="name" placeholder='Введите имя'>
-<img src="../mesto/images/Line 2.png"  alt="линия" class="popup__line">
-<input type="text" class="popup__info" id="job" placeholder='Введите род вашей деятельности'>
-<img src="../mesto/images/Line 2.png" alt="линия" class="popup__line">
-<button class="popup__save" type="submit">Сохранить</button>
+    <div class="popup__container"> 
+        <button class="popup__btn-close" type="button"></button>
+    <form action="#" class="form" name='form'>
+  
+<h3 class="form__name">Редактировать профиль</h3>
+<input type="text" class="form__info" id="name" placeholder='Введите имя'>
+<input type="text" class="form__info" id="job" placeholder='Введите род вашей деятельности'>
+<button class="form__btn-save" type="submit">Сохранить</button>
     </form>
+    </div>
 </section>
 
 <script src="./scripts/script.js"></script>
