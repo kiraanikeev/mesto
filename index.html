@@ -54,7 +54,16 @@
             <button class="element__like" type="button"></button>
         </div>
 
-    </section>        
+
+<template class="cards">
+    <div class="element">
+<img src="" alt="ffffff" class="element__img">
+<h2 class="element__name"></h2>
+<button class="element__like" type="button"></button>
+</div>
+</template>
+    </section>    
+
 </main>
 <footer class="footer">
     <p class="footer__text">© 2020 Mesto Russia</p>
@@ -73,7 +82,30 @@
     </div>
 </section>
 
+
+
+
+<section class="popup" id="popup__add">
+    <div class="popup__container"> 
+        <button class="popup__btn-close" id="popup_btn-close-Add" type="button"></button>
+    <form action="#" class="form__add" name='form'>
+  
+<h3 class="form__name">Новое место</h3>
+<input type="text" class="form__info" id="place" placeholder='Название'>
+<input type="text" class="form__info" id="link" placeholder='Ссылка на страницу'>
+<button class="form__btn-save" id="save__add" type="submit">Создать</button>
+    </form>
+    </div>
+</section>
+
+
+
+
+
+
+<script src="./scripts/initialcards.js"></script>
 <script src="./scripts/script.js"></script>
+
 </body>
 </html>
 
