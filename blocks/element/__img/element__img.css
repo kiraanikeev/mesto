@@ -5,3 +5,9 @@ height: 282px;
     border-top-left-radius: 4%; 
     border-top-right-radius: 4%; 
 }
+
+
+.element__img:hover{
+
+    cursor: pointer;
+}
