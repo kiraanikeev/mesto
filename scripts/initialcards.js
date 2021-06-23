@@ -34,8 +34,23 @@ const initialCards = [
   initialCards.forEach(function(elem,index){
     const cardsElement=cardsTemplate.querySelector('.element').cloneNode(true); //копируем
       cardsElement.querySelector('.element__img').src=elem.link;   //вставляем ссылку рисунка из массива
+      cardsElement.querySelector('.element__img').addEventListener('click', function(){
+        popupPhoto.classList.add('popup__opened');
+    popupImg.src=this.src;
+    popupTitle.textContent = elem.name;
+    // console.log(nameProfile.value)
+    // popupTitle.textContent = nameProfile.value;
+console.log("работает2")
+    });
       cardsElement.querySelector('.element__name').textContent=elem.name; //вставляем имя из массива
-      cardsElement.querySelector('.element__like');  //добавляем лайк
-      cardElement.prepend(cardsElement);   // вставляем как первый элемент 
      
+     cardsElement.querySelector('.element__delete').onclick = function(evt){
+        const eventTarget = evt.target.closest('.element'); 
+        eventTarget.remove(); 
+     };// удаляем элемент
+      cardsElement.querySelector('.element__like').onclick = function(){
+            this.classList.toggle('element_like_aktive');
+        };  //добавляем лайк
+      cardElement.prepend(cardsElement);   // вставляем как первый элемент 
+      
   })
