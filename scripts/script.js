@@ -100,7 +100,10 @@ function openImg(element){
 //изменение функции
 function alterBut(){
     elements.prepend(
-        createNewCard({name:placeInput.value, link:linkInput.value}));
+        createNewCard({
+            name:placeInput.value, 
+            link:linkInput.value
+        }));
     placeInput.value = ""; 
     linkInput.value = ""; 
     }

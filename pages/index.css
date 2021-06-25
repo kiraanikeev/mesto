@@ -39,6 +39,15 @@
 @import url(../blocks/popup/__container-photo/popup__container-photo.css); 
 @import url(../blocks/popup/__title/popup__title.css); 
 @import url(../blocks/popup/__imge/popup__imge.css); 
+@import url(../blocks/popup/__btn-delete/popup__btn-delete.css); 
+@import url(../blocks/popup/__btn-no-delete/popup__btn-no-delete.css); 
+@import url(../blocks/popup/__container-delete/popup__container-delete.css); 
+@import url(../blocks/popup/__question/popup__question.css); 
+@import url(../blocks); 
+@import url(../blocks); 
+@import url(../blocks); 
+@import url(../blocks); 
+@import url(../blocks); 
 @import url(../blocks); 
 @import url(../blocks); 
 @import url(../blocks); 

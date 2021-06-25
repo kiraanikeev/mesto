@@ -1,0 +1,17 @@
+.popup__container-delete{
+    padding-left: 33px;
+    height: 100px;
+    width: 155px;
+    background-color: rgb(98, 126, 139);
+    border-radius: 50% 20% / 10% 60%;
+    position: absolute;
+    right: -160px;
+    top: -85px;
+    display: grid;
+    grid-template-columns: 80px 80px;
+    grid-template-rows: 50px 50px;
+    gap: 2px;
+    z-index: 2;
+    
+
+}

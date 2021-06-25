@@ -1,0 +1,12 @@
+.popup__question{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    color: #FFFFFF;
+    text-align: center;
+    padding-right: 45px;
+}
