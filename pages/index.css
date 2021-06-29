@@ -43,7 +43,7 @@
 @import url(../blocks/popup/__btn-no-delete/popup__btn-no-delete.css); 
 @import url(../blocks/popup/__container-delete/popup__container-delete.css); 
 @import url(../blocks/popup/__question/popup__question.css); 
-@import url(../blocks); 
+@import url(../blocks/popup/__overlay/popup__overlay.css); 
 @import url(../blocks); 
 @import url(../blocks); 
 @import url(../blocks); 

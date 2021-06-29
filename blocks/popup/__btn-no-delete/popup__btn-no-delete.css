@@ -16,3 +16,12 @@
     color: #0e0b0b;
     
     }
+
+
+
+
+    
+    .popup__btn-no-delete:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}

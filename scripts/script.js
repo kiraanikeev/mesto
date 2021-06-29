@@ -73,7 +73,7 @@ function createNewCard (item) {
     cardsElement.querySelector('.element__img').src=item.link;
     cardsElement.querySelector('.element__name').textContent=item.name;
     cardsElement.querySelector('.element__like').addEventListener('click', activeLike)
-    cardsElement.querySelector('.element__delete').addEventListener('click', activeDelete)
+    cardsElement.querySelector('.element__delete').addEventListener('click', showDelete)
     return cardsElement; 
     };
 
@@ -81,11 +81,28 @@ function createNewCard (item) {
 function activeLike(){
     this.classList.toggle('element_like_aktive');
 }
-//Удаление 
-function activeDelete(evt){
+//Удаление третьего попапа
+function showDelete(evt){
     const eventTarget = evt.target.closest('.element'); 
- eventTarget.remove();
+    const popupTarget = eventTarget.querySelector('.popup');
+    const butDel = document.querySelectorAll('.popup__btn-delete')
+const butNoDel = document.querySelectorAll('.popup__btn-no-delete')
+popupTarget.classList.add("popup__opened");
+butNoDel.forEach((elem)=>{
+    elem.addEventListener('click', () => {
+        closePopup(popupTarget);
+    });
+})
+butDel.forEach((elem)=>{
+    elem.addEventListener('click', function activeDelete(evt){
+        const eventTarget = evt.target.closest('.element'); 
+     eventTarget.remove();
+    }
+)});
+popupTarget.addEventListener('click', closePopupAir);
 }
+
+
 
 //открытие и отображение картинок
 function openImg(element){

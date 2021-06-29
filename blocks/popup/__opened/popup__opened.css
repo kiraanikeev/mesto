@@ -1,6 +1,6 @@
 .popup__opened{
     /* display: unset; */
-   
+   position: absolute;
     visibility: visible;
   opacity: 1;
 }
