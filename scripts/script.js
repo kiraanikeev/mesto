@@ -2,8 +2,8 @@
 const openPopupProf = document.querySelector(".profile__edit-btn");
 const popup = document.querySelector(".popup");
 const closePopupProf = document.querySelector(".popup__btn-close");
-const nameInput = document.querySelector('#name');
-const jobInput = document.querySelector('#job'); 
+const nameInput = document.querySelector('#name-input');
+const jobInput = document.querySelector('#job-input'); 
 const formElement = document.querySelector('.form');
 const nameProfile = document.querySelector('.profile__name');
 const statusProfile = document.querySelector('.profile__status');
@@ -11,8 +11,8 @@ const statusProfile = document.querySelector('.profile__status');
 const openPopupAdd = document.querySelector(".profile__add-btn");
 const popupAdd = document.querySelector("#popup__add");
 const closePopupAdd = document.querySelector("#popup_btn-close-Add");
-const placeInput = document.querySelector('#place');
-const linkInput = document.querySelector('#link'); 
+const placeInput = document.querySelector('#place-input');
+const linkInput = document.querySelector('#link-input'); 
 const formElementAdd = document.querySelector('.form__add');
 //переменные на третий попап
 const openPopupPhoto = document.querySelectorAll(".element__img");
@@ -22,10 +22,13 @@ const popupImg = document.querySelector('.popup__imge')
 const popupTitle = document.querySelector('.popup__title')
 const cardsTemplate=document.querySelector('.cards').content; //помечаем Шаблон
 const elements=document.querySelector('.elements'); // Куда вставлям
+const saveAdd = document.querySelector('#save__add');
 
 //открыть попап
 function openPopup(popup){
     popup.classList.add("popup__opened");
+    saveAdd.classList.add('form__btn-save_inactive');
+    saveAdd.disabled = true;
 }
 //закрыть попап
 function closePopup(popup){
@@ -78,9 +81,12 @@ function createNewCard (item) {
     };
 
 //ЛАйк
-function activeLike(){
-    this.classList.toggle('element_like_aktive');
-}
+function activeLike(evt){
+    // this.classList.toggle('element_like_aktive');
+    //второй вариант исполнения
+    if (evt.target.classList.contains('element__like')) {
+        evt.target.classList.toggle('element_like_aktive');
+}};
 //Удаление третьего попапа
 function showDelete(evt){
     const eventTarget = evt.target.closest('.element'); 
@@ -123,6 +129,7 @@ function alterBut(){
         }));
     placeInput.value = ""; 
     linkInput.value = ""; 
+    
     }
 
 //слушатели 
@@ -147,4 +154,17 @@ closePopupPhoto.addEventListener('click', () => {
     closePopup(popupPhoto);
 });
 popupPhoto.addEventListener('click', closePopupAir);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
