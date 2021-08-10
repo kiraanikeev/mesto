@@ -1,26 +1,29 @@
-class FormValidator {
-    constructor(formElement, validationElement){
-        this.formElement=formElement;
-        this.formSelector=validationElement.formSelector;
-        this.inputSelector=validationElement.inputSelector;
-        this.buttonSelector=validationElement.buttonSelector;
-        this.inactiveButtonClass=validationElement.inactiveButtonClass;
-        this.inputErrorClass=validationElement.inputErrorClass;
-        this.errorClass=validationElement.errorClass;
+export class FormValidator {
+constructor(formElement, validationElement){
+    this.formElement=formElement;
+    this.formSelector=validationElement.formSelector;
+    this.inputSelector=validationElement.inputSelector;
+    this.buttonSelector=validationElement.buttonSelector;
+    this.inactiveButtonClass=validationElement.inactiveButtonClass;
+    this.inputErrorClass=validationElement.inputErrorClass;
+    this.errorClass=validationElement.errorClass;
 
 
-    }
+}
 
 // добавляетм новый класс с ошибкой в спан
-showImputError(showInputElement, errorMassage){
+showInputError(showInputElement, errorMassage){
     const errorElement = this.formElement.querySelector(`.${showInputElement.id}-error`);
     showInputElement.classList.add(this.inputErrorClass);
     errorElement.textContent = errorMassage;
     errorElement.classList.add(this.errorClass); 
+    console.log(this.errorClass)
+    console.log(this.inputErrorClass)
+
 }
 
 // убирает класс с ошибкой 
-  removeImputError(removeInputElement){
+  removeInputError(removeInputElement){
     const errorElement =this.formElement.querySelector(`.${removeInputElement.id}-error`);
     removeInputElement.classList.remove(this.inputErrorClass);
     errorElement.textContent = " ";
@@ -30,25 +33,26 @@ showImputError(showInputElement, errorMassage){
 }
 
 // проверяем на валидность  
-checkInputValidity(validiyImputElement){
-    console.log(validiyImputElement);
-    if(!validiyImputElement.validity.valid){
-        this.showImputError( validiyImputElement, validiyImputElement.validationMessage);
+checkInputValidity(validiyInputElement){
+  
+    if(!validiyInputElement.validity.valid){
+      
+        this.showInputError( validiyInputElement, validiyInputElement.validationMessage);
       }else{
-        this.removeImputError(validiyImputElement);
+        this.removeInputError(validiyInputElement);
       }
 }
 
 // возвращает true или false на валидацию импутов
-hasInvalidImput(valideImputList){
-    return valideImputList.some((valideImputElement)=>{
-        return !valideImputElement.validity.valid;
+hasInvalidInput(valideInputList){
+    return valideInputList.some((valideInputElement)=>{
+        return !valideInputElement.validity.valid;
       })
 }
 
 // переключатель активной кнопки
-toggleButtonState(listImput, buttonElement){
-    if(this.hasInvalidImput(listImput)){
+toggleButtonState(listInput, buttonElement){
+    if(this.hasInvalidInput(listInput)){
         buttonElement.classList.add(this.inactiveButtonClass);
         buttonElement.disabled=true;
     }else{
@@ -58,16 +62,23 @@ toggleButtonState(listImput, buttonElement){
 
 }
 
+
+inactiveButton(buttonElement){
+    buttonElement.classList.add(this.inactiveButtonClass);
+    buttonElement.disabled=true;
+    console.log('work')
+}
+
 // Второй уровень. проход по импутам
 setEventListener(){      
-    const listImput = Array.from(this.formElement.querySelectorAll(this.inputSelector));
+    const listInput = Array.from(this.formElement.querySelectorAll(this.inputSelector));
     const buttonElement = this.formElement.querySelector(this.buttonSelector);
-    this.toggleButtonState (listImput, buttonElement);
-    listImput.forEach((imputElementImput) => {
+    this.toggleButtonState (listInput, buttonElement);
+    listInput.forEach((inputElementInput) => {
     
-        imputElementImput.addEventListener('input', ()=>{
-          this.checkInputValidity(imputElementImput);
-         this.toggleButtonState (listImput, buttonElement);
+        inputElementInput.addEventListener('input', ()=>{
+          this.checkInputValidity(inputElementInput);
+         this.toggleButtonState (listInput, buttonElement);
         })
     }
     )}

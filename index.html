@@ -52,35 +52,35 @@
 </footer>
 
 
-<section class="popup">
+<section class="popup popup__overlay" id="popup__info">
     <div class="popup__container"> 
         <button class="popup__btn-close" type="button"></button>
     <form action="#" class="form form__alter" name='form' novalidate>
 <h3 class="form__name">Редактировать профиль</h3>
-<input type="text" class="form__info popup__input_tupe_name" id="name-input" placeholder='Введите имя' required minlength="2" maxlength="200">
+<input type="text" class="form__info popup__input_tupe_name" name="name" id="name-input" placeholder='Введите имя' required minlength="2" maxlength="200">
 <span class="form__input-error name-input-error" id="name-error"></span>
-<input type="text" class="form__info popup__input_tupe_job" id="job-input" placeholder='Введите род вашей деятельности' required minlength="2" maxlength="200">
+<input type="text" class="form__info popup__input_tupe_job" name="info" id="job-input" placeholder='Введите род вашей деятельности' required minlength="2" maxlength="200">
 <span class="form__input-error job-input-error" id="job-error"></span>
 <button class="form__btn-save" type="submit">Сохранить</button>
     </form>
     </div>
 </section>
 
-<section class="popup" id="popup__add">
+<section class="popup popup__overlay" id="popup__add">
     <div class="popup__container"> 
         <button class="popup__btn-close" id="popup_btn-close-Add" type="button"></button>
     <form action="#" class="form form__add" name='form' novalidate>
 <h3 class="form__name">Новое место</h3>
-<input type="text" class="form__info" id="place-input" placeholder='Название' required minlength="2" maxlength="40">
+<input type="text" class="form__info" id="place-input" name='title' placeholder='Название' required minlength="2" maxlength="40">
 <span class="form__input-error place-input-error" id="name-error"></span>
-<input type="url" class="form__info" id="link-input" placeholder='Ссылка на страницу' required minlength="2" maxlength="200">
+<input type="url" class="form__info" id="link-input" name='link' placeholder='Ссылка на страницу' required minlength="2" maxlength="200">
 <span class="form__input-error link-input-error" id="name-error"></span>
 <button class="form__btn-save" id="save__add" type="submit">Создать</button>
     </form>
     </div>
 </section>
 
-<section class="popup" id="popup__photo">
+<section class="popup popup__overlay" id="popup__photo">
     <div class="popup__container-photo"> 
         <button class="popup__btn-close" id="popup_btn-close-photo" type="button"></button>
 <img src="" alt="К сожалению ваша картинка не отобразилась, нам очень жаль" class="popup__imge">
@@ -88,12 +88,18 @@
     </div>
 </section>
 
-<script src="./scripts/initialcards.js"></script>
+<!-- <script src="./scripts/initialcards.js"></script>
 <script src="scripts/Card.js"></script>
 <script src="scripts/FormValidator.js"></script>
+<script src="scripts/Popup.js"></script>
+<script src="scripts/UserInfo.js"></script>
+<script src="./scripts/PopupWithForm.js"></script>
+<script src="./scripts/PopupWithImage.js"></script>
+<script src="./scripts/Section.js"></script>
+<script src="./scripts/script.js"></script> -->
 
-<script src="./scripts/script.js"></script>
 <!-- <script src="./scripts/validate.js"></script> -->
+<script type="module" src="./scripts/script.js"></script>
 
 </body>
 </html>

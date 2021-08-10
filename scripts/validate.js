@@ -1,5 +1,5 @@
 // добавляетм новый класс с ошибкой в спан
-const showImputError = (showFormElement, showInputElement, errorMassage) =>{
+const showInputError = (showFormElement, showInputElement, errorMassage) =>{
   const errorElement = showFormElement.querySelector(`.${showInputElement.id}-error`);
   showInputElement.classList.add('form__input_type_error');
   errorElement.textContent = errorMassage;
@@ -7,7 +7,7 @@ const showImputError = (showFormElement, showInputElement, errorMassage) =>{
 }
 
 // убирает класс с ошибкой 
- const removeImputError = (removeFormElement, removeInputElement)=>{
+ const removeInputError = (removeFormElement, removeInputElement)=>{
   const errorElement = removeFormElement.querySelector(`.${removeInputElement.id}-error`);
   removeInputElement.classList.remove('form__input_type_error');
   errorElement.textContent = " ";
@@ -15,26 +15,27 @@ const showImputError = (showFormElement, showInputElement, errorMassage) =>{
  }
  
 // проверяем на валидность  
-const checkInputValidity = (validityFormElement, validiyImputElement) =>{
-if(!validiyImputElement.validity.valid){
-  showImputError(validityFormElement, validiyImputElement, validiyImputElement.validationMessage);
+const checkInputValidity = (validityFormElement, validiyInputElement) =>{
+if(!validiyInputElement.validity.valid){
+  showInputError(validityFormElement, validiyInputElement, validiyInputElement.validationMessage);
 }else{
-  removeImputError(validityFormElement, validiyImputElement);
+  removeInputError(validityFormElement, validiyInputElement);
 }
 }
 
 // возвращает true или false на валидацию импутов
-const hasInvalidImput = (valideImputList)=>{
-  return valideImputList.some((valideImputElement)=>{
-    return !valideImputElement.validity.valid;
+const hasInvalidInput = (valideInputList)=>{
+  return valideInputList.some((valideInputElement)=>{
+    return !valideInputElement.validity.valid;
   })
 }
 
 
 // переключатель активной кнопки
-const toggleButtonState = (listImput, buttonElement) =>{
-  if(hasInvalidImput(listImput)){
+const toggleButtonState = (listInput, buttonElement) =>{
+  if(hasInvalidInput(listInput)){
     buttonElement.classList.add('form__btn-save_inactive');
+    // МОЛОДЕЦ ЧТО ИСПОЛЬЗУЕШЬ DISABLED!
     buttonElement.disabled = true;
 
   }else{
@@ -45,14 +46,14 @@ const toggleButtonState = (listImput, buttonElement) =>{
 }
 
 // Второй уровень. проход по импутам
-const setEventListener = (formElementImput) =>{
-  const listImput = Array.from(formElementImput.querySelectorAll('.form__info'));
-  const buttonElement = formElementImput.querySelector('.form__btn-save');
-  toggleButtonState (listImput, buttonElement);
-  listImput.forEach((imputElementImput) => {
-    imputElementImput.addEventListener('input', ()=>{
-      checkInputValidity(formElementImput, imputElementImput);
-      toggleButtonState (listImput, buttonElement);
+const setEventListener = (formElementInput) =>{
+  const listInput = Array.from(formElementInput.querySelectorAll('.form__info'));
+  const buttonElement = formElementInput.querySelector('.form__btn-save');
+  toggleButtonState (listInput, buttonElement);
+  listInput.forEach((inputElementInput) => {
+    inputElementInput.addEventListener('input', ()=>{
+      checkInputValidity(formElementInput, inputElementInput);
+      toggleButtonState (listInput, buttonElement);
 
     })
   }
@@ -61,6 +62,7 @@ const setEventListener = (formElementImput) =>{
 //Первый уровень. проход по формам
 
 const enableValidation = () => {
+  // НУЖНО ОБРАЩАТЬСЯ К КОНКРЕТНОЙ ФОРМЕ А НЕ ИСКАТЬ ЧЕРЕЗ QUERYSELECTORALL
   const listForm = Array.from(document.querySelectorAll('.form'));
 listForm.forEach((formElementForm) =>{
   formElementForm.addEventListener('submit', (evt) =>{
