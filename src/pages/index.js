@@ -1,11 +1,13 @@
-import { Card } from "./Card.js";
-import { FormValidator } from "./FormValidator.js";
-import { initialCards } from "./initialcards.js";
-import { Popup } from "./Popup.js";
-import { PopupWithForm } from "./PopupWithForm.js";
-import { PopupWithImage } from "./PopupWithImage.js";
-import { Section } from "./Section.js";
-import { UserInfo } from "./UserInfo.js";
+import './index.css'
+import { Card } from '../scripts/Card.js'
+import { FormValidator } from "../scripts/FormValidator.js";
+import { initialCards } from "../scripts/initialcards.js";
+import { Popup } from "../scripts/Popup.js";
+import { PopupWithForm } from "../scripts/PopupWithForm.js";
+import { PopupWithImage } from "../scripts/PopupWithImage.js";
+import { Section } from "../scripts/Section.js";
+import { UserInfo } from "../scripts/UserInfo.js";
+
 import {
     openPopupProf,
     popupInfo,
@@ -21,7 +23,7 @@ import {
     saveAdd,
     elements,
     validationElement
-} from "./constents.js"
+} from "../scripts/constents.js"
 
 
 const popupAddCard = new Popup(popupAdd);
@@ -50,15 +52,19 @@ const popupWithForm = new PopupWithForm({
         popupWithImage.close();
         popupWithForm.close();
         // oneSection.addItem(addCard.createNewCard())
-        popupTwo.inactiveButton(saveAdd);
+        
+      
     }
     
 })
  function createCardFunction (name, link) {
     const addCard = new Card({name:name, link:link, cardSelector:'.cards', handleCardClick: ()=>{
-        popupWithImage.open({name: item.name, link: item.link})
+
+        // popupWithImage.open({name: item.name, link: item.link})
+        popupWithImage.open({name, link})
     }});
     oneSection.addItem(addCard.createNewCard())
+    
 }
 
 

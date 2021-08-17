@@ -9,5 +9,7 @@ export class PopupWithImage extends Popup{
     popupTitle.textContent = name;
     popupImg.src = link; 
 
+
+
 }
 }

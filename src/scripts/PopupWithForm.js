@@ -29,6 +29,5 @@ this.formElement.addEventListener('submit',(evt)=>{
 close(){
     super.close()
     this.formElement.reset();
- 
 }
 }

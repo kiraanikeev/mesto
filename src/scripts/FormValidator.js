@@ -17,8 +17,7 @@ showInputError(showInputElement, errorMassage){
     showInputElement.classList.add(this.inputErrorClass);
     errorElement.textContent = errorMassage;
     errorElement.classList.add(this.errorClass); 
-    console.log(this.errorClass)
-    console.log(this.inputErrorClass)
+ 
 
 }
 
@@ -28,7 +27,7 @@ showInputError(showInputElement, errorMassage){
     removeInputElement.classList.remove(this.inputErrorClass);
     errorElement.textContent = " ";
     errorElement.classList.remove(this.errorClass); 
-
+    
 
 }
 
@@ -70,7 +69,7 @@ inactiveButton(buttonElement){
 }
 
 // Второй уровень. проход по импутам
-setEventListener(){      
+setEventListeners(){      
     const listInput = Array.from(this.formElement.querySelectorAll(this.inputSelector));
     const buttonElement = this.formElement.querySelector(this.buttonSelector);
     this.toggleButtonState (listInput, buttonElement);
@@ -81,12 +80,21 @@ setEventListener(){
          this.toggleButtonState (listInput, buttonElement);
         })
     }
-    )}
+    )
+
+this.formElement.addEventListener('reset', ()=>{
+    this.inactiveButton(buttonElement);
+    listInput.forEach((inputElementInput)=>{
+        this.removeInputError(inputElementInput);
+    })
+})
+}
 // //Первый уровень. проход по формам
 enableValidation(){
 this.formElement.addEventListener('submit', (evt) =>{
     evt.preventDefault();
   })
-  this.setEventListener();
+  
+  this.setEventListeners();
 }
 }
