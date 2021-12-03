@@ -1,28 +1,24 @@
-.form__info{
-    width: 358px;
-    height: 14px;
-    border: none;
-    font-family: Inter;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 17px;
-padding-bottom: 13px;
-border-bottom: 1px solid rgb(0, 0, 0, 0.2);
-outline: none;
-padding-top: 0;
+.form__info {
+  width: 358px;
+  height: 14px;
+  border: none;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+  outline: none;
+  padding-top: 0;
 }
 
-
-
-.form__info:last-of-type{
-    margin-top: 30px;
+.form__info:nth-of-type(2) {
+  margin-top: 30px;
 }
 
-
-
-@media screen and (max-width: 550px){
-    .form__info{
-        width: 238px;
-      
-    }}
+@media screen and (max-width: 550px) {
+  .form__info {
+    width: 238px;
+  }
+}

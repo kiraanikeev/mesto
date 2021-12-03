@@ -1,27 +1,21 @@
-.popup__btn-no-delete{
+.popup__btn-no-delete {
+  background-size: 40px;
+  box-sizing: border-box;
+  background-color: floralwhite;
+  opacity: 0.6;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50% 20% / 10% 60%;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #0e0b0b;
+}
 
-    background-size: 40px; 
-    box-sizing: border-box;
-    background-color: floralwhite;
-    opacity: 0.6;
-    width: 40px;
-    height: 40px;
-    border: none;
-    border-radius: 50% 20% / 10% 60%;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 13px;
-    line-height: 15px;
-    color: #0e0b0b;
-    
-    }
-
-
-
-
-    
-    .popup__btn-no-delete:hover{
-    opacity: 0.6;
-    cursor: pointer;
+.popup__btn-no-delete:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }

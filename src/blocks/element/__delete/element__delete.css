@@ -1,20 +1,18 @@
-.element__delete{
-    position: absolute;
-    top: 18px;
-right: 15px;
-background-image: url('../../../images/Group.png'); 
-background-repeat: no-repeat; 
-background-size: 18px; 
-box-sizing: border-box;
-background-color: transparent; 
-width: 18px;
-height: 19.3px;
-border: none;
+.element__delete {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  background-image: url("../../../images/Group.png");
+  background-repeat: no-repeat;
+  background-size: 18px;
+  box-sizing: border-box;
+  background-color: transparent;
+  width: 18px;
+  height: 19.3px;
+  border: none;
 }
 
-
-
-.element__delete:hover{
-    opacity: 0.6;
-    cursor: pointer;
+.element__delete:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }

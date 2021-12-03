@@ -1,26 +1,20 @@
-.element__like{
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    background-image: url('../../../images/Vector\ \(Stroke\).png'); 
-    background-repeat: no-repeat; 
+.element__like {
+  position: absolute;
+  bottom: 38px;
+  right: 28px;
 
-    background-position: center;
+  background-image: url("../../../images/Vector\ \(Stroke\).png");
+  background-repeat: no-repeat;
 
-    background-color: transparent; 
-    background-size: 100%;
-    width: 22px;
-    height: 19px;
-    border: white;
+  background-position: center;
+
+  background-color: transparent;
+  background-size: 100%;
+  width: 22px;
+  height: 19px;
+  border: white;
 }
-
-
-
-
-
-
-
-.element__like:hover{
-    opacity: 0.6;
-    cursor: pointer;
+.element__like:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }

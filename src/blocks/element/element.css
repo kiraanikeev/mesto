@@ -1,10 +1,8 @@
-.element{
-    background-color: white;
-    max-width: 282px;
-    width: 100%;
-    border-radius: 4%; 
-    height: 361px;
-    position: relative;
-
+.element {
+  background-color: white;
+  max-width: 282px;
+  width: 100%;
+  border-radius: 4%;
+  height: 361px;
+  position: relative;
 }
-

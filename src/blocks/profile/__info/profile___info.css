@@ -1,19 +1,16 @@
-.profile__info{
-    position: relative;
-    /* max-width: 336px;
+.profile__info {
+  position: relative;
+  /* max-width: 336px;
     width: 100%; */
-    /* margin-right: 244px; */
-    /* margin-left: 30px; */
-    height: 73px;
-    width: 336px;
+  /* margin-right: 244px; */
+  /* margin-left: 30px; */
+  height: 73px;
+  width: 336px;
 }
 
-
-
 @media screen and (max-width: 350px) {
-    .profile__info{
-        width: 282px;
-       margin: 0 auto;
-
-    
-}}
+  .profile__info {
+    width: 282px;
+    margin: 0 auto;
+  }
+}
