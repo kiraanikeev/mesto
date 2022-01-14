@@ -66,9 +66,7 @@ const setEventListener = (formElementInput) => {
 };
 
 //Первый уровень. проход по формам
-
 const enableValidation = () => {
-  // НУЖНО ОБРАЩАТЬСЯ К КОНКРЕТНОЙ ФОРМЕ А НЕ ИСКАТЬ ЧЕРЕЗ QUERYSELECTORALL
   const listForm = Array.from(document.querySelectorAll(".form"));
   listForm.forEach((formElementForm) => {
     formElementForm.addEventListener("submit", (evt) => {

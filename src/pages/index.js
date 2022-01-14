@@ -1,7 +1,6 @@
 import "./index.css";
 import { Card } from "../scripts/Card.js";
 import { FormValidator } from "../scripts/FormValidator.js";
-import { initialCards } from "../scripts/initialcards.js";
 import { Popup } from "../scripts/Popup.js";
 import { PopupWithForm } from "../scripts/PopupWithForm.js";
 import { PopupWithImage } from "../scripts/PopupWithImage.js";
@@ -42,6 +41,47 @@ const changeText = (evt) => {
   evt.textContent = "Сохранение...";
   return;
 };
+
+function createCardFunction(name, link, id, userId, owner, likes, owntrLikes) {
+  const addCard = new Card({
+    name: name,
+    link: link,
+    id: id,
+    userId: userId,
+    owner: owner,
+    likes: likes,
+    owntrLikes: owntrLikes,
+    cardSelector: ".cards",
+    handleCardClick: () => {
+      popupWithImage.open({ name, link });
+    },
+    showDelete: () => {
+      const popupDeleteBusk = new PopupWithSubmit({
+        selectorPopup: popupDelete,
+        callbackFunction: () => {
+          api.deleteCards(id).then(() => {
+            addCard.elemDelete();
+          });
+          popupDeleteBusk.close();
+        },
+      });
+      popupDeleteBusk.open();
+      popupDeleteBusk.setEventListeners();
+    },
+    handleLike: (meaning) => {
+      if (meaning === true) {
+        api.deleteLike(id).then((res) => {
+          return addCard.likeFunction(res.likes);
+        });
+      } else {
+        api.makeLike(id).then((res) => {
+          return addCard.likeFunction(res.likes);
+        });
+      }
+    },
+  });
+  oneSection.addItemPrepend(addCard.createNewCard());
+}
 
 const popupAddCard = new Popup(popupAdd);
 const popupWithImage = new PopupWithImage(popupPhoto);
@@ -84,6 +124,7 @@ api.getCards().then((array) => {
     },
     containerSelector: elements,
   });
+console.log('arrayCards', arrayCards)
   oneSection.allItemsRanderer();
 });
 
@@ -107,9 +148,9 @@ const popupWithForm = new PopupWithForm({
   functionSubmit: (item) => {
     changeText(popupWithForm.buttonSubmit);
     api.addCardsPost(item).then((item) => {
-      const id = item._id;
       const name = item.name;
       const link = item.link;
+      const id = item._id;
       const owner = item.owner._id;
       const likes = item.likes.length;
       const owntrLikes = item.likes;
@@ -120,49 +161,11 @@ const popupWithForm = new PopupWithForm({
     });
     popupWithImage.close();
     popupWithForm.close();
+   
   },
 });
 
-function createCardFunction(name, link, id, userId, owner, likes, owntrLikes) {
-  const addCard = new Card({
-    name: name,
-    link: link,
-    id: id,
-    userId: userId,
-    owner: owner,
-    likes: likes,
-    owntrLikes: owntrLikes,
-    cardSelector: ".cards",
-    handleCardClick: () => {
-      popupWithImage.open({ name, link });
-    },
-    showDelete: () => {
-      const popupDeleteBusk = new PopupWithSubmit({
-        selectorPopup: popupDelete,
-        callbackFunction: () => {
-          api.deleteCards(id).then(() => {
-            addCard.elemDelete();
-          });
-          popupDeleteBusk.close();
-        },
-      });
-      popupDeleteBusk.open();
-      popupDeleteBusk.setEventListeners();
-    },
-    handleLike: (meaning) => {
-      if (meaning === true) {
-        api.deleteLike(id).then((res) => {
-          return addCard.likeFunction(res.likes);
-        });
-      } else {
-        api.makeLike(id).then((res) => {
-          return addCard.likeFunction(res.likes);
-        });
-      }
-    },
-  });
-  oneSection.addItem(addCard.createNewCard());
-}
+
 popupWithForm.setEventListeners();
 popupAddCard.setEventListeners();
 popupWithImage.setEventListeners();

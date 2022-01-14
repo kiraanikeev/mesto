@@ -24,9 +24,6 @@ export class UserInfo {
   }
 
   setId(id) {
-    // console.log('id:"')
-    // console.log(id)
-    // return id
     this.id = id;
   }
 }
